@@ -5,26 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="robots" content="noindex, nofollow, noarchive">
   <meta name="theme-color" content="#f7f5f0">
-  <title>Wishlist Manager</title>
+  <title>Bibek's Wishlist Manager</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <header class="admin-header">
     <nav class="nav">
-      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">✳</span> My Wishlist</a>
-      <div class="nav-actions"><a class="button secondary" href="index.html">View Wishlist</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme"><span aria-hidden="true">☾</span></button></div>
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">✳</span> Bibek's Wishlist</a>
+      <div class="nav-actions"><a class="button secondary" href="index.html">View Bibek's wishlist</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme"><span aria-hidden="true">☾</span></button></div>
     </nav>
   </header>
 
   <main class="container admin-page">
     <section class="panel" id="auth-panel">
       <p class="eyebrow">Administrator sign in</p>
-      <h2>Sign in to manage your wishlist</h2>
+      <h2>Sign in to manage Bibek’s wishlist</h2>
       <p>Only the account authorized in your Supabase database policies can make changes.</p>
       <form id="login-form">
         <label>Email<input id="login-email" type="email" autocomplete="username" required></label>
         <label>Password<input id="login-password" type="password" autocomplete="current-password" required></label>
-        <div class="form-actions"><button class="button primary" type="submit">Sign in</button></div>
+        <div class="form-actions"><button class="button primary" type="submit">Sign in</button><button id="forgot-password" class="button secondary" type="button">Forgot password?</button></div>
+      </form>
+      <form id="reset-form" class="hidden">
+        <p>We’ll email you a secure link to choose a new password.</p>
+        <label>Email<input id="reset-email" type="email" autocomplete="email" required></label>
+        <div class="form-actions"><button class="button primary" type="submit">Send reset link</button><button id="cancel-reset" class="button secondary" type="button">Back to sign in</button></div>
+      </form>
+      <form id="new-password-form" class="hidden">
+        <p>Choose a new password for your backstage account.</p>
+        <label>New password<input id="new-password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <label>Confirm new password<input id="confirm-password" type="password" autocomplete="new-password" minlength="8" required></label>
+        <div class="form-actions"><button class="button primary" type="submit">Update password</button></div>
       </form>
       <p id="auth-status" class="connection-status" role="status" aria-live="polite"></p>
       <button id="auth-sign-out" class="button secondary hidden" type="button">Sign out</button>
@@ -32,7 +43,7 @@
 
     <div id="manager-content" class="hidden">
     <div class="panel-heading manager-heading">
-      <div><p class="eyebrow">Live manager</p><h1>Wishlist Manager</h1><p>Changes sync to the public wishlist for everyone.</p></div>
+      <div><p class="eyebrow">Bibek’s backstage</p><h1>Wishlist Manager</h1><p>Changes show up on Bibek’s public wishlist for everyone.</p></div>
       <button id="sign-out" class="button secondary" type="button">Sign out</button>
     </div>
     <p id="manager-status" class="connection-status" role="status" aria-live="polite"></p>
