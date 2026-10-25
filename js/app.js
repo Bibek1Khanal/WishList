@@ -58,8 +58,8 @@ function render() {
   });
 
   emptyState.classList.toggle("hidden", filtered.length > 0 || connectionStatus.classList.contains("is-error"));
-  emptyState.querySelector("h3").textContent = items.length && query ? "No matches" : "Nothing on the list yet";
-  emptyState.querySelector("p").textContent = items.length && query ? "Try a different search." : "Check back soon for new ideas.";
+  emptyState.querySelector("h3").textContent = items.length && query ? "No matches on Bibek’s list" : "Nothing on Bibek’s list yet";
+  emptyState.querySelector("p").textContent = items.length && query ? "Try a different search." : "I’ll add a few things here soon.";
 }
 
 async function loadItems() {
