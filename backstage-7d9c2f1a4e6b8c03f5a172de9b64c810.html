@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow, noarchive">
+  <meta name="theme-color" content="#f7f5f0">
+  <title>Wishlist Manager</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="admin-header">
+    <nav class="nav">
+      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">✳</span> My Wishlist</a>
+      <div class="nav-actions"><a class="button secondary" href="index.html">View Wishlist</a><button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme"><span aria-hidden="true">☾</span></button></div>
+    </nav>
+  </header>
+
+  <main class="container admin-page">
+    <section class="panel" id="auth-panel">
+      <p class="eyebrow">Administrator sign in</p>
+      <h2>Sign in to manage your wishlist</h2>
+      <p>Only the account authorized in your Supabase database policies can make changes.</p>
+      <form id="login-form">
+        <label>Email<input id="login-email" type="email" autocomplete="username" required></label>
+        <label>Password<input id="login-password" type="password" autocomplete="current-password" required></label>
+        <div class="form-actions"><button class="button primary" type="submit">Sign in</button></div>
+      </form>
+      <p id="auth-status" class="connection-status" role="status" aria-live="polite"></p>
+      <button id="auth-sign-out" class="button secondary hidden" type="button">Sign out</button>
+    </section>
+
+    <div id="manager-content" class="hidden">
+    <div class="panel-heading manager-heading">
+      <div><p class="eyebrow">Live manager</p><h1>Wishlist Manager</h1><p>Changes sync to the public wishlist for everyone.</p></div>
+      <button id="sign-out" class="button secondary" type="button">Sign out</button>
+    </div>
+    <p id="manager-status" class="connection-status" role="status" aria-live="polite"></p>
+    <section id="legacy-import" class="panel hidden">
+      <h2>Import this browser’s old wishlist?</h2>
+      <p id="legacy-import-note">We found items stored by the earlier version of this site. Import them to the shared database.</p>
+      <button id="import-legacy" class="button secondary" type="button">Import saved items</button>
+    </section>
+    <section class="panel">
+      <form id="item-form">
+        <input type="hidden" id="edit-id">
+
+        <label>Name
+          <input id="name" required maxlength="100" placeholder="Item name">
+        </label>
+
+        <label>Description
+          <textarea id="description" required maxlength="500" placeholder="Short description"></textarea>
+        </label>
+
+        <div class="two-col">
+          <label>Price
+            <input id="price" type="number" min="0" step="0.01" placeholder="0.00">
+          </label>
+          <label>Image URL
+          <input id="image" type="url" placeholder="https://...">
+          </label>
+        </div>
+
+        <label>Product URL
+          <input id="url" type="url" placeholder="https://...">
+        </label>
+
+        <div class="form-actions">
+          <button class="button primary" type="submit">Save Item</button>
+          <button class="button secondary hidden" id="cancel-edit" type="button">Cancel Edit</button>
+        </div>
+      </form>
+    </section>
+
+    <section class="panel">
+      <div class="panel-heading">
+        <div>
+          <h2>Current Items</h2>
+          <p id="admin-count">0 items</p>
+        </div>
+        <button id="clear-all" class="button danger" type="button">Clear All</button>
+      </div>
+      <div id="admin-list"></div>
+    </section>
+    </div>
+  </main>
+
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/admin.js"></script>
+</body>
+</html>

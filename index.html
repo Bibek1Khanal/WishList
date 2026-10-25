@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f5f0">
+  <meta name="description" content="A little collection of things I would love to receive.">
+  <title>My Wishlist</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav">
+      <a class="brand" href="index.html" aria-label="My Wishlist home"><span class="brand-mark" aria-hidden="true">✳</span> My Wishlist</a>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch to dark mode" title="Switch theme"><span aria-hidden="true">☾</span></button>
+    </nav>
+    <div class="hero-content">
+      <p class="eyebrow">A little collection of things I love</p>
+      <h1>A few things<br><span>on my mind.</span></h1>
+      <p>Here are a few things I’d love. Browse the list, find something that feels right, and let me know.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="toolbar">
+      <div>
+        <h2>Wishlist</h2>
+        <p id="item-count" aria-live="polite">0 items</p>
+      </div>
+      <label class="search-wrap"><span class="sr-only">Search wishlist</span><span class="search-icon" aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find something…"></label>
+    </section>
+    <p id="connection-status" class="connection-status" role="status" aria-live="polite">Loading your wishlist…</p>
+    <section id="wishlist" class="grid" aria-label="Wishlist items"></section>
+    <div id="empty-state" class="empty hidden" role="status">
+      <h3>No items found</h3>
+      <p>Try a different search.</p>
+    </div>
+  </main>
+
+  <div id="modal" class="modal hidden" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+      <button id="close-modal" class="close" aria-label="Close">&times;</button>
+      <div id="modal-content"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer"><span>Made with a little wishful thinking <span aria-hidden="true">✳</span></span><span>Availability is stored on this device.</span></footer>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <script src="js/supabase-config.js"></script>
+  <script src="js/data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
