@@ -93,7 +93,7 @@ a { color: inherit; }
 .site-footer { border-top: 1px solid var(--border); max-width: 1120px; margin: auto; padding: 22px 20px 30px; color: var(--muted); display: flex; justify-content: space-between; gap: 12px; font-size: .82rem; }
 .site-footer span span { color: var(--accent); }
 .modal { position: fixed; inset: 0; background: rgb(9 13 10 / 66%); display: grid; place-items: center; padding: 18px; z-index: 10; backdrop-filter: blur(4px); }
-.modal-card { width: min(480px, 100%); background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 30px; position: relative; box-shadow: 0 24px 80px rgb(0 0 0 / 25%); }
+.modal-card { width: min(480px, 100%); max-height: calc(100vh - 36px); max-height: calc(100dvh - 36px); overflow-y: auto; overscroll-behavior: contain; background: var(--surface); border: 1px solid var(--border); border-radius: 22px; padding: 30px; position: relative; box-shadow: 0 24px 80px rgb(0 0 0 / 25%); }
 .modal-card h2 { margin: 0 36px 12px 0; font-family: 'Playfair Display', Georgia, serif; font-weight: 500; }
 .modal-card p { color: var(--muted); line-height: 1.6; }
 .close { position: absolute; right: 16px; top: 14px; width: 36px; height: 36px; border: 0; border-radius: 50%; background: var(--surface-soft); color: var(--text); font-size: 1.5rem; cursor: pointer; }
@@ -129,8 +129,12 @@ textarea { min-height: 110px; resize: vertical; }
   .panel { padding: 20px; }
   .panel-heading { align-items: flex-start; flex-direction: column; }
   .admin-item { align-items: flex-start; flex-direction: column; }
-  .admin-item-actions { width: 100%; }
-  .admin-item-actions .button { flex: 1; }
+  .admin-header .nav { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .admin-header .nav-actions { width: 100%; justify-content: space-between; }
+  .form-actions { flex-wrap: wrap; }
+  .form-actions .button { flex: 1 1 140px; }
+  .admin-item-actions { width: 100%; flex-wrap: wrap; }
+  .admin-item-actions .button { flex: 1 1 130px; }
   .site-footer { flex-direction: column; padding-inline: 16px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; } }
